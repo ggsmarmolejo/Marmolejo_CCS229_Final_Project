@@ -1,13 +1,8 @@
-I'd be glad to create a Pokemon starter recommendation app for the Hoenn region using Python and Streamlit, incorporating the best aspects of the provided information and addressing potential shortcomings:
-
-**Code:**
-
-```python
 import streamlit as st
 import openai
 
 # Replace with your actual OpenAI API key
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = st.secrets["API_key"]
 
 async def generate_starter_description(starter):
   """Generates a creative description of the chosen starter Pokemon."""
@@ -88,9 +83,3 @@ async def app():
 if __name__ == "__main__":
   import asyncio
   asyncio.run(app())
-```
-
-**Explanation and Improvements:**
-
-- **Clear Function Definitions:** The code is well-structured with separate functions for starter description generation (`generate_starter_description`) and recommendation logic (`generate_starter_recommendation`).
-- **Multi-Level Prompting:** It guides the user through playstyle preference (Level 1) and optionally, specific preferences
