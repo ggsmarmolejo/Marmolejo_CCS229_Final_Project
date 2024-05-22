@@ -25,11 +25,21 @@ genre_options = ["Pop", "Rock", "Hip-Hop", "Country", "Electronic"]
 genre = st.selectbox("Choose a Genre:", genre_options)
 
 theme_prompts = {
-  "Pop": "Breakup Anthem", "Empowerment Song", "Summer Love",
-  "Rock": "Rebellion", "Facing Your Fears", "Heartbreak Ballad",
-  "Hip-Hop": "Struggle and Success", "Party Anthem", "Social Commentary",
-  "Country": "Lost Love", "Life on the Farm", "Small Town Dreams",
-  "Electronic": "Dystopian Future", "Euphoric Dancefloor", "Nostalgia for the Past",
+  "Pop": "Breakup Anthem",  # Colon added here
+  "Empowerment Song",  # Colon added here
+  "Summer Love",  # Colon added here
+  "Rock": "Rebellion",
+  "Facing Your Fears",
+  "Heartbreak Ballad",
+  "Hip-Hop": "Struggle and Success",
+  "Party Anthem",
+  "Social Commentary",
+  "Country": "Lost Love",
+  "Life on the Farm",
+  "Small Town Dreams",
+  "Electronic": "Dystopian Future",
+  "Euphoric Dancefloor",
+  "Nostalgia for the Past",
 }
 
 theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
