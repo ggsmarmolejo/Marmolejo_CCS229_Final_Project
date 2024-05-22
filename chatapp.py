@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Replace with your actual OpenAI API key
-openai.api_key = st.secrets["API_key"]
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 async def generate_starter_description(starter):
   """Generates a creative description of the chosen starter Pokemon."""
@@ -44,7 +44,7 @@ async def generate_starter_recommendation():
   # Combine prompts and call GPT-3 for generation
   full_prompt = f"""Based on the information below, recommend a suitable starter Pokemon for a trainer in the Hoenn region:
 
-  **Playstyle:** {playstyle_description}
+  *Playstyle:* {playstyle_description}
   {additional_text}"""
 
   response = await openai.Completion.create(
@@ -66,11 +66,11 @@ async def generate_starter_recommendation():
 async def app():
   recommended_starter, starter_description = await generate_starter_recommendation()
 
-  st.write(f"**Recommended Starter:** {recommended_starter.capitalize()}")
+  st.write(f"*Recommended Starter:* {recommended_starter.capitalize()}")
   st.image(f"images/{recommended_starter.lower()}.png", width=200)  # Add starter images
   st.write(starter_description)
 
-  st.write("**Learn More About the Starters:**")
+  st.write("*Learn More About the Starters:*")
   st.text(
       """
       - Treecko (Grass): A quick and agile Pokemon that evolves into a powerful Grass/Ground type.
@@ -80,6 +80,6 @@ async def app():
   )
 
 # Run the app
-if __name__ == "__main__":
+if _name_ == "_main_":
   import asyncio
   asyncio.run(app())
