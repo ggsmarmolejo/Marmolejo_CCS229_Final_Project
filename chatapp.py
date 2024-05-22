@@ -3,7 +3,7 @@ import openai
 import random
 
 # Replace 'your_api_key' with your actual OpenAI API key
-openai.api_key = "your_api_key"
+openai.api_key = "sk-proj-MXI9JdTLpSquQdIkGT3OT3BlbkFJYHKWnWxaFg8D3QpRHjrx"
 
 
 def generate_lyrics(genre, theme, language, additional_prompt=None):
