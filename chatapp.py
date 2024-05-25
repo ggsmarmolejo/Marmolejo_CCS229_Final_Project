@@ -5,7 +5,7 @@ import streamlit as st
 
 client = AsyncOpenAI(api_key=st.secrets["API_key"])
 
-async def generate_lyrics(genre, language, topic=None):
+async def generate_lyrics(genre, language, topic):
     """
     Generates song lyrics based on genre, language, and optionally a topic
     """
@@ -19,6 +19,7 @@ async def generate_lyrics(genre, language, topic=None):
             {"role": "system", "content": prompt_text},
             {"role": "user", "content": genre},
             {"role": "user", "content": language},
+            {"role": "user", "content": topic},
         ]
     )
     return response.choices[0].message.content
@@ -37,6 +38,6 @@ def main():
             lyrics = asyncio.run(generate_lyrics(genre, language, topic))
             st.write(f"**{genre} Song Lyrics ({language})**\n{lyrics}")
 
-if __name__ == "__main__":
-    # Run the Streamlit app
-   main()
+# Run the Streamlit app
+if _name_ == "_main_":
+    main()
