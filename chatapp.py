@@ -1,49 +1,36 @@
 import streamlit as st
-import openai
-import random
 
-# Replace 'your_api_key' with your actual OpenAI API key
-openai.api_key = "sk-proj-0s4Hi3O0bLAXRnOqoV7bT3BlbkFJULSseb5kpZ6llnpBJUya"
+# Replace with your OpenAI API key
+API_KEY = "sk-proj-0s4Hi3O0bLAXRnOqoV7bT3BlbkFJULSseb5kpZ6llnpBJUya"
 
+def generate_lyrics(genre, language, topic=None):
+  """
+  Generates song lyrics based on genre, language and optionally a topic
+  """
+  prompt_text = f"I am an AI Song Lyricist. Write me a song in the {genre} genre in {language}."
+  if topic:
+    prompt_text += f"  The song should be about {topic}"
 
-def generate_lyrics(genre, theme, language, additional_prompt=None):
-  prompts = [
-    f"Genre: {genre}\nTheme: {theme}",
-    f"Language: {language}",
-  ]
-  if additional_prompt:
-    prompts.append(additional_prompt)
-  final_prompt = "\n".join(prompts)
-  response = openai.Completion.create(engine="text-davinci-003", prompt=final_prompt, max_tokens=150, n=1, stop=None, temperature=0.7)
-  lyrics = response.choices[0].text.strip()
-  return lyrics
+  response = openai.Completion.create(
+      engine="text-davinci-003",
+      prompt=prompt_text,
+      max_tokens=150,
+      n=1,
+      stop=None,
+      temperature=0.7,
+  )
+  return response.choices[0].text.strip()
 
+st.title("AI Filipino Song Lyricist")
 
-st.title("Versify: Unleash Your Inner Songwriter")
-
-genre_options = ["Pop", "Rock", "Hip-Hop", "Country", "Electronic"]
-genre = st.selectbox("Choose a Genre:", genre_options)
-
-theme_prompts = {
-  "Bayanihan Anthem":  "Modern Pop, Tagalog lyrics celebrating community spirit",
-  "Fiesta Fever":     "Latin Pop, Tagalog & English lyrics describing a Filipino fiesta",
-  "OFW Ballad":      "Acoustic Ballad, Tagalog lyrics about an Overseas Filipino Worker",
-  "Harana 2.0":      "R&B, Tagalog lyrics about a modern serenade using technology",
-  "Jeepney Jam":      "Hip-Hop, Tagalog & English lyrics capturing jeepney culture"
-}
-
-# Fix: Check if a genre is selected before accessing theme_prompts
-if genre:
-  theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
-else:
-  theme = "Select a Genre First"  # Or a placeholder theme
-
-language_options = ["English", "Filipino", "Hiligaynon"]
-language = st.selectbox("Choose Your Language:", language_options)
-
-additional_prompt = st.text_input("Add an Optional Prompt (e.g., specific imagery, metaphors)", key="prompt")
+genre_options = ["O.P.M. (Original Pilipino Music)", "Hugot", "Pinoy Rock", "Kundiman", "Hip-Hop"]
+language_options = ["Filipino", "English", "Hiligaynon"]
+genre = st.selectbox("Choose Genre", genre_options)
+language = st.selectbox("Choose Language", language_options)
+topic = st.text_input("Enter Song Topic (Optional)")
 
 if st.button("Generate Lyrics"):
-  lyrics = generate_lyrics(genre, theme, language, additional_prompt)
-  st.write("Your AI-Generated Lyrics:")
-  st.write(lyrics)
+  lyrics = generate_lyrics(genre, language, topic)
+  st.write(f"**{genre} Song Lyrics ({language})**\n {lyrics}")
+
+openai.api_key = API_KEY
