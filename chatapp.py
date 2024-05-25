@@ -1,8 +1,8 @@
 import streamlit as st
-import openai  # Make sure to import the openai library
+import openai
 
 # Replace with your OpenAI API key
-API_KEY = "sk-proj-sIgxAoJmOyEUIkFTvMZUT3BlbkFJTsvsNbpraVKkvhCyTEMd"
+API_KEY = "sk-proj-0s4Hi3O0bLAXRnOqoV7bT3BlbkFJULSseb5kpZ6llnpBJUya"
 openai.api_key = API_KEY  # Set the API key
 
 def generate_lyrics(genre, language, topic=None):
@@ -13,15 +13,18 @@ def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt_text,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are an AI song lyricist."},
+            {"role": "user", "content": prompt_text}
+        ],
         max_tokens=150,
         n=1,
         stop=None,
         temperature=0.7,
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message['content'].strip()
 
 st.title("AI Filipino Song Lyricist")
 
