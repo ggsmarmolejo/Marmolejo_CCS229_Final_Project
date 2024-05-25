@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Replace with your OpenAI API key
-API_KEY = "sk-proj-0s4Hi3O0bLAXRnOqoV7bT3BlbkFJULSseb5kpZ6llnpBJUya"
+API_KEY = "sk-proj-VeWaYwaVkxWI6Bm0Q1dRT3BlbkFJ7973SHIGEFQgFtfVdhJn"
 openai.api_key = API_KEY  # Set the API key
 
 def generate_lyrics(genre, language, topic=None):
