@@ -27,7 +27,7 @@ genre = st.selectbox("Choose a Genre:", genre_options)
 theme_prompts = {
   "Bayanihan Anthem":  "Modern Pop, Tagalog lyrics celebrating community spirit",
   "Fiesta Fever":     "Latin Pop, Tagalog & English lyrics describing a Filipino fiesta",
-  "OFW Ballad":      "Acoustic Ballad, Tagalog
+  "OFW Ballad":      "Acoustic Ballad, Tagalog"
 }
 
 theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
