@@ -1,6 +1,5 @@
 import os
-from openai
-import AsyncOpenAI
+from openai import AsyncOpenAI
 import asyncio
 import streamlit as st
 
