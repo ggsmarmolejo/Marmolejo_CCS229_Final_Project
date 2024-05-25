@@ -3,7 +3,7 @@ from openai import AsyncOpenAI
 import asyncio
 import streamlit as st
 
-client = AsyncOpenAI(api_key=st.secrets["sk-proj-MVqgbWMTu0w84QRAK3hST3BlbkFJh8HvHgu3lpcQqY7VUBbE"])
+client = AsyncOpenAI(api_key=st.secrets["API_key"])
 
 def generate_lyrics(genre, language, topic=None):
     """
