@@ -36,5 +36,5 @@ def main():
             st.write(f"**{genre} Song Lyrics ({language})**\n{lyrics}")
 
 # Run the Streamlit app
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
