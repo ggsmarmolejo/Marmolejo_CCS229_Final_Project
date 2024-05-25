@@ -15,7 +15,7 @@ def generate_lyrics(genre, language, topic=None):
         prompt_text += f" The song should be about {topic}."
 
     model = "text-davinci-003"
-    response = openai.Completion.create(
+    response = client.chat.completions.create(
         prompt=prompt_text,
         model=model,
         max_tokens=150,
