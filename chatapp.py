@@ -1,9 +1,10 @@
 import os
-import openai
+from openai
+import AsyncOpenAI
+import asyncio
 import streamlit as st
 
-API_KEY = st.secrets["sk-proj-MVqgbWMTu0w84QRAK3hST3BlbkFJh8HvHgu3lpcQqY7VUBbE"]
-openai.api_key = API_KEY
+client = AsyncOpenAI(api_key=st.secrets["sk-proj-MVqgbWMTu0w84QRAK3hST3BlbkFJh8HvHgu3lpcQqY7VUBbE"])
 
 def generate_lyrics(genre, language, topic=None):
     """
