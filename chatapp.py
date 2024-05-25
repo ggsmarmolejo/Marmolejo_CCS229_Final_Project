@@ -14,7 +14,7 @@ def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
-    model = "text-davinci-003"
+    model = "gpt-3.5-turbo"
     response = client.chat.completions.create(
         prompt=prompt_text,
         model=model,
