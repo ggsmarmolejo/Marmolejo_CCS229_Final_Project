@@ -13,25 +13,30 @@ async def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
-    
     response = await client.chat.completions.create(
-        model = "gpt-3.5-turbo",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": prompt_text},
             {"role": "user", "content": genre},
             {"role": "user", "content": language},
         ]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message['content']
 
-st.title("Versify: An AI Song Lyricist")
+def main():
+    st.title("Versify" An AI Song Lyricist")
 
-genre_options = ["O.P.M. (Original Pilipino Music)", "Hugot", "Pinoy Rock", "Kundiman", "Hip-Hop"]
-language_options = ["Filipino", "English", "Hiligaynon"]
-genre = st.selectbox("Choose Genre", genre_options)
-language = st.selectbox("Choose Language", language_options)
-topic = st.text_input("Enter Song Topic (Optional)")
+    genre_options = ["O.P.M. (Original Pilipino Music)", "Hugot", "Pinoy Rock", "Kundiman", "Hip-Hop"]
+    language_options = ["Filipino", "English", "Hiligaynon"]
+    genre = st.selectbox("Choose Genre", genre_options)
+    language = st.selectbox("Choose Language", language_options)
+    topic = st.text_input("Enter Song Topic (Optional)")
 
-if st.button("Generate Lyrics"):
-    lyrics = generate_lyrics(genre, language, topic)
-    st.write(f"**{genre} Song Lyrics ({language})**\n {lyrics}")
+    if st.button("Generate Lyrics"):
+        with st.spinner("Generating lyrics..."):
+            lyrics = asyncio.run(generate_lyrics(genre, language, topic))
+            st.write(f"**{genre} Song Lyrics ({language})**\n{lyrics}")
+
+# Run the Streamlit app
+if _name_ == "_main_":
+    main()
