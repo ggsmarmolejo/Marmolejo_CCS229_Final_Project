@@ -17,6 +17,8 @@ def generate_lyrics(genre, language, topic=None):
     response = openai.Completion.create(
         prompt=prompt_text,
         max_tokens=150,
+        n=1,
+        stop=None,
         temperature=0.7,
     )
     return response.choices[0].text.strip()
