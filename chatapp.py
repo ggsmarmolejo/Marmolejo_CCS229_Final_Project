@@ -24,7 +24,7 @@ async def generate_lyrics(genre, language, topic=None):
     )
     return response.choices[0].message.content
 
-st.title("AI Filipino Song Lyricist")
+st.title("Versify: An AI Song Lyricist")
 
 genre_options = ["O.P.M. (Original Pilipino Music)", "Hugot", "Pinoy Rock", "Kundiman", "Hip-Hop"]
 language_options = ["Filipino", "English", "Hiligaynon"]
