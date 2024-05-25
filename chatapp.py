@@ -26,7 +26,7 @@ genre = st.selectbox("Choose a Genre:", genre_options)
 
 theme_prompts = {
     "Pop": "Breakup Anthem",
-    "Empowerment Song",  # No colon after the key
+    "Empowerment Song",:  # No colon after the key
     "Summer Love",       # No colon after the key
     "Rock": "Rebellion",
     "Facing Your Fears",
