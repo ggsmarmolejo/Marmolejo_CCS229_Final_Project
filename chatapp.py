@@ -16,11 +16,8 @@ async def generate_lyrics(genre, language, topic):
     response = await client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": prompt_text},
-            {"role": "user", "content": genre},
-            {"role": "user", "content": language},
-            {"role": "user", "content": topic},
-        ]
+            {"role": "system", "content": prompt_text}
+        ],
     )
     return response.choices[0].message.content
 
@@ -39,5 +36,5 @@ def main():
             st.write(f"**{genre} Song Lyrics ({language})**\n{lyrics}")
 
 # Run the Streamlit app
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
