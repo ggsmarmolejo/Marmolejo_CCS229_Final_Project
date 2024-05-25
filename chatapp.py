@@ -3,7 +3,7 @@ import openai
 import random
 
 # Replace 'your_api_key' with your actual OpenAI API key
-openai.api_key = "sk-proj-RTUyAD5228H6s4EecumFT3BlbkFJ2wCKaq4fLhCUBDltBsrt"
+openai.api_key = "sk-proj-0s4Hi3O0bLAXRnOqoV7bT3BlbkFJULSseb5kpZ6llnpBJUya"
 
 
 def generate_lyrics(genre, theme, language, additional_prompt=None):
@@ -33,7 +33,7 @@ theme_prompts = {
 }
 
 # Fix: Check if a genre is selected before accessing theme_prompts
-if genre:  # Correct syntax with colon after the condition
+if genre:
   theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
 else:
   theme = "Select a Genre First"  # Or a placeholder theme
