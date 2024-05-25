@@ -5,7 +5,7 @@ import streamlit as st
 
 client = AsyncOpenAI(api_key=st.secrets["API_key"])
 
-def generate_lyrics(genre, language, topic=None):
+async def generate_lyrics(genre, language, topic=None):
     """
     Generates song lyrics based on genre, language, and optionally a topic
     """
@@ -13,10 +13,14 @@ def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
-    model = "gpt-3.5-turbo"
-    response = client.chat.completions.create(
-        prompt=prompt_text,
-        model=model,
+    
+    response = await client.chat.completions.create(
+        model = "gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": prompt_text},
+            {"role": "user", "content": genre},
+            {"role": "user", "content": language},
+        ]
     )
     return response.choices[0].message.content
 
