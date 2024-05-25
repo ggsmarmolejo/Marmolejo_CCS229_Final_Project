@@ -37,6 +37,3 @@ def main():
             lyrics = asyncio.run(generate_lyrics(genre, language, topic))
             st.write(f"**{genre} Song Lyrics ({language})**\n{lyrics}")
 
-# Run the Streamlit app
-if _name_ == "_main_":
-    main()
