@@ -21,7 +21,7 @@ def generate_lyrics(genre, language, topic=None):
         max_tokens=150,
         temperature=0.7,
     )
-    strip response.choices[0].message.content
+    return response.choices[0].message.content
 
 st.title("AI Filipino Song Lyricist")
 
