@@ -25,22 +25,13 @@ genre_options = ["Pop", "Rock", "Hip-Hop", "Country", "Electronic"]
 genre = st.selectbox("Choose a Genre:", genre_options)
 
 theme_prompts = {
-    "Pop": "Breakup Anthem",
-    "Empowerment Song",:  # No colon after the key
-    "Summer Love",       # No colon after the key
-    "Rock": "Rebellion",
-    "Facing Your Fears",
-    "Heartbreak Ballad",
-    "Hip-Hop": "Struggle and Success",
-    "Party Anthem",
-    "Social Commentary",
-    "Country": "Lost Love",
-    "Life on the Farm",
-    "Small Town Dreams",
-    "Electronic": "Dystopian Future",
-    "Euphoric Dancefloor",
-    "Nostalgia for the Past"
+    "Bayanihan Anthem":  "Modern Pop, Tagalog lyrics celebrating community spirit",
+    "Fiesta Fever":     "Latin Pop, Tagalog & English lyrics describing a Filipino fiesta",
+    "OFW Ballad":      "Acoustic Ballad, Tagalog lyrics about an Overseas Filipino Worker",
+    "Harana 2.0":      "R&B, Tagalog lyrics about a modern serenade using technology",
+    "Jeepney Jam":      "Hip-Hop, Tagalog & English lyrics capturing jeepney culture"
 }
+
 
 theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
 
