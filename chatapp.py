@@ -3,7 +3,7 @@ import openai
 import random
 
 # Replace 'your_api_key' with your actual OpenAI API key
-openai.api_key = "sk-proj-MXI9JdTLpSquQdIkGT3OT3BlbkFJYHKWnWxaFg8D3QpRHjrx"
+openai.api_key = "sk-proj-RTUyAD5228H6s4EecumFT3BlbkFJ2wCKaq4fLhCUBDltBsrt"
 
 
 def generate_lyrics(genre, theme, language, additional_prompt=None):
@@ -27,9 +27,12 @@ genre = st.selectbox("Choose a Genre:", genre_options)
 theme_prompts = {
   "Bayanihan Anthem":  "Modern Pop, Tagalog lyrics celebrating community spirit",
   "Fiesta Fever":     "Latin Pop, Tagalog & English lyrics describing a Filipino fiesta",
-  "OFW Ballad":      "Acoustic Ballad, Tagalog"
+  "OFW Ballad":      "Acoustic Ballad, Tagalog lyrics about an Overseas Filipino Worker",
+  "Harana 2.0":      "R&B, Tagalog lyrics about a modern serenade using technology",
+  "Jeepney Jam":      "Hip-Hop, Tagalog & English lyrics capturing jeepney culture"
 }
 
+# Fix: Check if a genre is selected before accessing theme_prompts
 if genre:  # Correct syntax with colon after the condition
   theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
 else:
