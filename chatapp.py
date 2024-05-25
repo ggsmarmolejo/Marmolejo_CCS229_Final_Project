@@ -13,8 +13,8 @@ def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
+    model="text-davinci-003"
     response = openai.Completion.create(
-        model="text-davinci-003",
         prompt=prompt_text,
         max_tokens=150,
         temperature=0.7,
