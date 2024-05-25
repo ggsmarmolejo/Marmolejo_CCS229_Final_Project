@@ -13,7 +13,7 @@ def generate_lyrics(genre, language, topic=None):
     if topic:
         prompt_text += f" The song should be about {topic}."
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are an AI song lyricist."},
