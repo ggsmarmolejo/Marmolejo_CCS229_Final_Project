@@ -30,7 +30,7 @@ theme_prompts = {
   "OFW Ballad":      "Acoustic Ballad, Tagalog"
 }
 
-if genre:
+if genre:  # Correct syntax with colon after the condition
   theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
 else:
   theme = "Select a Genre First"  # Or a placeholder theme
