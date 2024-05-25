@@ -30,7 +30,10 @@ theme_prompts = {
   "OFW Ballad":      "Acoustic Ballad, Tagalog"
 }
 
-theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
+if genre:
+  theme = st.selectbox("Pick a Theme:", theme_prompts[genre])
+else:
+  theme = "Select a Genre First"  # Or a placeholder theme
 
 language_options = ["English", "Filipino", "Hiligaynon"]
 language = st.selectbox("Choose Your Language:", language_options)
