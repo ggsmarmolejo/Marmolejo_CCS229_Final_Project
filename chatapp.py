@@ -20,8 +20,6 @@ def generate_lyrics(genre, language, topic=None):
             {"role": "user", "content": prompt_text}
         ],
         max_tokens=150,
-        n=1,
-        stop=None,
         temperature=0.7,
     )
     return response.choices[0].message['content'].strip()
